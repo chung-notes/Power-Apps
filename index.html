@@ -106,8 +106,8 @@
   <div class="menu" id="menu">
     <ul>
       <li><a href="#1">Command to update a specific ID</a></li>
-      <li><a href="#2"></a></li>
-      <li><a href="#3"></a></li>
+      <li><a href="#2">Basic functions</a></li>
+      <li><a href="#3">Get the extenstion of a file</a></li>
       <li><a href="#4"></a></li>
       <li><a href="#5"></a></li>
       <li><a href="#6"></a></li>
@@ -162,11 +162,14 @@ Navigate()	：画面遷移
 
 <!-- ============================== -->
 <pre id="3">
+Get the extenstion of the file
+Set(getFileName,First(Ticket1AttachedFile.Attachments).Name);
 
+// Get file name but not including extenstion
+Notify(Last(Split(getFileName, ".")).Value, NotificationType.Success)
 
-
-
-
+// Get only exntestion of a file
+Notify(First(Split(getFileName, ".")).Value, NotificationType.Success)
 
 </pre>
 <!-- ============================== -->
