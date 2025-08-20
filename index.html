@@ -108,7 +108,7 @@
       <li><a href="#1">Command to update a specific ID</a></li>
       <li><a href="#2">Basic functions</a></li>
       <li><a href="#3">Get the extenstion of a file</a></li>
-      <li><a href="#4"></a></li>
+      <li><a href="#4">Search and load found item on gellary</a></li>
       <li><a href="#5"></a></li>
       <li><a href="#6"></a></li>
       <li><a href="#7"></a></li>
@@ -176,9 +176,15 @@ Notify(First(Split(getFileName, ".")).Value, NotificationType.Success)
 
 <!-- ============================== -->
 <pre id="4">
-
-
-
+If(
+    TextInputShainNo.Value = "",
+    Notify("社員番号が入力されていません。", NotificationType.Warning),
+    If(
+        IsEmpty(Filter(OverTimeBusUsers, EmployeeCode = "a" & TextInputShainNo.Value)),
+        Notify("該当する社員が見つかりません。", NotificationType.Warning),
+        Set(filteredUser, Filter(OverTimeBusUsers, EmployeeCode = "a" & TextInputShainNo.Value))
+    )
+);
 </pre>
 <!-- ============================== -->
 
